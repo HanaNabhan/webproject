@@ -10,7 +10,7 @@ $err_pass =  "";
 $err_email = "";
 if (isset($_POST['submit'])) {
     if (empty($_POST['username']) || empty($_POST['email']) || empty($_POST['password']) || empty($_POST['confirmPassword'])) {
-        $error = 'Please Fill All The Inputs';
+        $error = ' Please Fill All The Inputs !';
     } else {
         $username = $_POST['username'];
         $email = $_POST['email'];
@@ -72,10 +72,13 @@ if (isset($_POST['submit'])) {
         .login-input {
 
             display: block;
-            margin-top: 15px;
+            margin: 15px 0;
             width: 50%;
             height: 50px;
-            left: 25%;
+            /* left: 25%; */
+            border-radius: 4px;
+            border:2px;
+
         }
 
         .bord:focus {
@@ -90,6 +93,8 @@ if (isset($_POST['submit'])) {
             top: 20%;
             left: 46%;
             text-align: center;
+            font-family: sans-serif;
+            color:#5573af;
         }
 
         .form-f {
@@ -101,34 +106,49 @@ if (isset($_POST['submit'])) {
         }
 
         .send {
-            background-color: gray;
-            border: none;
-            border-radius: 3px;
+           
+            min-width: 160px;
+            padding: 15px 0;
+            border-radius: 5px;
+            border: 0;
+            cursor: pointer;
+            font-size: 18px;
+            text-transform: capitalize;
+            margin: 10px;
+            background-color: #5573af;
+            color:white;
             /* transition: background-color  0.5ms; */
         }
 
         .send:hover {
-            background-color: #C0C0C0;
+            opacity:0.8 ;
             color: white;
             cursor: pointer;
         }
         /* define error class here ... */ 
+        .error{
+           
+            font-size: 13px;
+            color:#5573af;
+            opacity:0.8;
+        }
+        
     </style>
 </head>
 
 <body>
     <div class="login container">
-        <h1 style="text-align: center; ">Register</h1>
+        <h1 >Register</h1>
         <form action="registeration.php" method="post" class="form-f">
             <!-- <label for="username">UserName</label> -->
-            <input class="login-input bord" name="username" type="text" placeholder="Enter a username">
+            <input class="login-input bord" name="username" type="text" placeholder="  Enter a username">
             <div class="error"> <?php echo $err_username; ?></div>
-            <input class="login-input bord" name="email" type="email" placeholder="Enter a email">
+            <input class="login-input bord" name="email" type="email" placeholder="  Enter a email">
             <div class="error"> <?php echo $err_email; ?></div>
-            <input class="login-input bord" name="password" type="password" placeholder="Enter a password">
-            <input class="login-input bord" name="confirmPassword" type="password" placeholder="Enter Confirmation password">
+            <input class="login-input bord" name="password" type="password" placeholder="  Enter a password">
+            <input class="login-input bord" name="confirmPassword" type="password" placeholder="  Enter Confirmation password">
             <div class="error"> <?php echo $err_pass; ?></div>
-            <input class="login-input send" name="submit" type="submit" value="LOGIN">
+            <input class="login-input send" name="submit" type="submit" value="LOGIN" >
             <div class="error"> <?php echo $error; ?></div>
         </form>
     </div>
