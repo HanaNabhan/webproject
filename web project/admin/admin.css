@@ -1,0 +1,138 @@
+body {
+    margin: 0;
+    font-family: "Arial", sans-serif;
+}
+
+h1 {
+    font-size: 18px;
+    /* margin-top: -0.1%; */
+}
+
+header {
+    position: fixed;
+    top: 0%;
+    width: 100%;
+    background-color: #343a40;
+    color: #fff;
+    padding: 10px;
+    z-index: 100;
+    height: 8%;
+    text-align: center;
+}
+
+.content {
+    /* margin-left: px; */
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    padding: 20px;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 100;
+}
+
+body {
+    margin: 0;
+    font-family: "Arial", sans-serif;
+    background-color: #f4f4f4;
+}
+
+
+/* The sidebar menu  */
+
+.sidenav {
+    height: 100%;
+    width: 160px;
+    position: fixed;
+    /* z-index: 1; */
+    top: 0;
+    left: 0;
+    background-color: #585f66;
+    z-index: 5;
+    overflow-x: hidden;
+    padding-top: 20px;
+    margin-top: 4%;
+}
+
+
+/* /The navigation menu links / */
+
+.sidenav a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 20px;
+    color: #818181;
+    display: block;
+}
+
+
+/* When you mouse over the navigation links, change their color / */
+
+.sidenav a:hover {
+    color: #d6cece;
+}
+
+Style page content .main {
+    margin-left: 160px;
+    padding: 0px 10px;
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav {
+        padding-top: 15px;
+    }
+    .sidenav a {
+        font-size: 18px;
+        /* margin-top: 20%; */
+    }
+}
+
+@media (min-width: 568px) {
+    .card {
+        width: 50%;
+    }
+}
+
+@media (min-width: 992px) {
+    .card {
+        width: 50%;
+    }
+}
+
+@media (min-width: 1200px) {
+    .card {
+        width: 50%;
+    }
+}
+
+
+/* / //////////////////////////////////////////////// */
+
+@media (min-width: 568px) {
+    .sidenav {
+        width: 10%;
+    }
+}
+
+@media (min-width: 992px) {
+    .sidenav {
+        width: 10%;
+    }
+}
+
+@media (min-width: 1200px) {
+    .sidenav {
+        width: 10%;
+    }
+}
+
+
+/* ---------------- */

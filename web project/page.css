@@ -1,0 +1,931 @@
+/*
+    1-general styles
+    2-section 
+        2.1-header
+        2.2-about
+        2.3-contact
+        2.4-category
+
+
+
+*/
+
+
+/*  common */
+
+
+/*
+container
+opacity hover
+section header
+section padding 
+hover effect ltr ttb
+clear after float
+*/
+
+
+/*                              common                      */
+
+body {
+    --header-height: 70px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* CS3: padding will not affect the width size*/
+}
+
+.container {
+    position: relative;
+    width: 70%;
+    margin: auto;
+    /* will be in the middle of the webpage*/
+}
+
+.mg {
+    margin-right: 5%;
+    margin-left: 5%;
+}
+
+.overlay {
+    /*the overlay layer above the background image*/
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: montserrat, sans-serif;
+}
+
+button {
+    font-family: inherit;
+    /*inherit the font of the body*/
+}
+
+.hover-opacity {
+    /*the parent*/
+    transition: opacity 0.5s;
+    /*only the opacity */
+}
+
+.hover-opacity:hover {
+    /*the child*/
+    opacity: 0.8;
+}
+
+.clear {
+    clear: both;
+}
+
+a {
+    text-decoration: none;
+}
+
+.pd-y {
+    padding: 120px 0;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.section-header .section-title {
+    font-size: 35px;
+    text-transform: capitalize;
+    margin-bottom: 10px;
+}
+
+.section-header .section-line {
+    display: block;
+    height: 5px;
+    width: 70px;
+    background-color: #5573af;
+    margin: auto;
+    border-radius: 2px;
+    margin: 0 auto 70px auto;
+}
+
+.ltr-effect {
+    position: relative;
+}
+
+.ltr-effect:after {
+    position: absolute;
+    content: "";
+    width: 0;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgb(72, 71, 71);
+    transition: width 0.5s;
+    z-index: -1;
+    border-radius: 10px;
+}
+
+.ltr-effect:hover:after {
+    width: 100%;
+    /* border-radius: 10px; */
+}
+
+.tb-effect {
+    position: relative;
+}
+
+.tb-effect:after {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 0;
+    top: 0;
+    left: 0;
+    background-color: rgb(72, 71, 71);
+    transition: height 0.5s;
+    z-index: -1;
+    border-radius: 10px;
+}
+
+.tb-effect:hover:after {
+    height: 100%;
+    border-radius: 10px;
+}
+
+
+/*                       Header                         */
+
+.header {
+    position: fixed;
+    width: 100%;
+    height: var(--header-height);
+    /*the fixed position transform the element from block to inline-block*/
+    z-index: 10;
+    /*to be on top of the home content */
+    transition: 0.5s;
+}
+
+.header--hidden {
+    transform: translateY(calc(-1 * var(--header-height)));
+    box-shadow: none;
+}
+
+.header.sticky {
+    background-color: #0c1529;
+    position: fixed;
+    top: 0%;
+    width: 100%;
+    transition: 0.3s;
+}
+
+.header.sticky ul li a {
+    color: rgb(255, 255, 255);
+}
+
+.header.sticky ul li ul li {
+    background-color: black;
+    transition: 0.3s;
+}
+
+.header.sticky ul li ul li a {
+    color: aliceblue;
+}
+
+.header .logo {
+    font-family: Ephesis, sans-serif;
+    letter-spacing: 4px;
+    font-size: 30px;
+    color: white;
+    float: left;
+    width: 40%;
+    padding: 16px;
+}
+
+.header .logo a:visited,
+.header .logo a:active {
+    color: white;
+}
+
+.header .nav {
+    width: 60%;
+    /* next to each other*/
+    float: left;
+    text-align: right;
+}
+
+.header .nav>li {
+    /*only the direct childs of nav class and direct child of li*/
+    list-style: none;
+    /* no bullets*/
+    display: inline-block;
+    /* padding :6px;  not very effective here because the link will not be clickable in any area of the padding*/
+}
+
+.header .nav>li>a {
+    font-size: 20px;
+    color: white;
+    padding: 25px 16px;
+    display: block;
+    /* cause the padding will only work form left and right*/
+}
+
+.header .nav>li>a:after,
+.header .nav>li>a.active:after {
+    /*grouping*/
+    content: "";
+    display: block;
+    /* to show under the element*/
+    height: 3px;
+    background-color: #5573af;
+    transition: width 0.5s;
+    /*give a delay before the underline will show*/
+    margin-top: 2px;
+}
+
+.header .nav>li>a:after {
+    width: 0;
+    /*width won't be visiable until hover*/
+}
+
+.header .nav>li>a.active:after {
+    width: 100%;
+    /*by default underline that element */
+}
+
+.header .nav>li>a:hover:after {
+    width: 100%;
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    position: absolute;
+    width: 150px;
+    text-align: center;
+    top: 70px;
+    /* background-color: white; */
+    /* to make the drop down not visible*/
+    opacity: 0;
+    visibility: hidden;
+    border-radius: 3px;
+    transition: opacity 0.5s, visibility 0.5s;
+}
+
+.dropdown-menu a {
+    color: #5573af;
+    display: block;
+    padding: 10px;
+    text-transform: capitalize;
+    border-radius: 3px;
+}
+
+.dropdown:hover .dropdown-menu {
+    /* making dropdown menu visible case hover */
+    opacity: 1;
+    visibility: visible;
+}
+
+.dropdown-menu a:hover {
+    background-color: #5573af;
+    color: white;
+    transition: 0.2s;
+}
+
+
+/* added code */
+
+.dropdown-menu li {
+    list-style: none;
+    margin: 5px 0;
+    background-color: #e8e8e8;
+    border-radius: 3px;
+    transition: 0.3s;
+}
+
+
+/*                      Home                    */
+
+.home {
+    height: 100vh;
+    /* take 100% from your space board */
+    background-image: url("images/pexels-pixabay-301920.jpg");
+    /* margin-bottom: 100px ; */
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    background-attachment: fixed;
+}
+
+.home .main-address {
+    letter-spacing: 2px;
+    font-size: 3.5rem;
+    /*main font *3.5*/
+    color: white;
+    text-transform: uppercase;
+    font-family: "Josefin Sans", sans-serif;
+}
+
+.home-description {
+    color: white;
+    word-spacing: 3px;
+    margin: 15px 0;
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+    line-height: 1.2;
+}
+
+.home-content {
+    /* to center the content using posistion (hero image) */
+    position: absolute;
+    width: 65%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.home .btn:visited {
+    color: rgb(0, 0, 0);
+}
+
+.home .btn {
+    display: inline-block;
+    min-width: 160px;
+    padding: 15px 0;
+    border-radius: 5px;
+    border: 0;
+    cursor: pointer;
+    font-size: 18px;
+    text-transform: capitalize;
+    margin: 10px;
+}
+
+.home .btn-start {
+    margin-right: 10px;
+    background-color: white;
+}
+
+.home .btn-learn {
+    background-color: #5573af;
+    color: white;
+}
+
+
+/*       about       */
+
+.about-item {
+    width: 30%;
+    float: left;
+    text-align: left;
+    margin-left: 3%;
+    border: 2px solid #e8e8e8;
+    padding: 50px 20px;
+    border-radius: 10px;
+    background-color: rgba(245, 245, 245, 0.2);
+}
+
+
+/* .about-item.marg {
+    margin: 0 5%;
+} */
+
+.about-img-item {
+    height: 200px;
+    width: 250px;
+}
+
+.about-item-title {
+    text-transform: capitalize;
+    transition: color 0.5s;
+    font-family: sans-serif;
+    margin-top: 5px;
+    color: #0c1529;
+}
+
+.about-item:hover .about-item-title {
+    color: white;
+}
+
+.about-item-description {
+    line-height: 1.6;
+    color: #0c1529;
+}
+
+.mg-d {
+    /*common margin*/
+    margin-bottom: 10px;
+}
+
+.about-item-link {
+    color: #5573af;
+    text-transform: capitalize;
+}
+
+
+/* num section */
+
+.numbers {
+    position: relative;
+    background-image: url(images/background2.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    height: 350px;
+}
+
+.numbers-items {
+    overflow: hidden;
+    margin-left: 25%;
+    padding: 100px;
+}
+
+.number-item {
+    width: 25%;
+    float: left;
+    margin-left: 2%;
+    text-align: center;
+}
+
+.number-item .icon {
+    color: #6195ff;
+    margin-bottom: 15px;
+}
+
+.number-item-title {
+    font-weight: bold;
+    font-size: 30px;
+    color: #fff;
+    margin-bottom: 5px;
+}
+
+.number-item-text {
+    color: #fff;
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+
+/* pricing section */
+
+.pricing {}
+
+.pricing-plans {
+    overflow: hidden;
+}
+
+.pricing-item {
+    width: 30%;
+    float: left;
+    padding: 40px 15px;
+    border: 1px solid #e8e8e8;
+    text-align: center;
+}
+
+.pricing-item-text {
+    text-transform: uppercase;
+    font-size: 17px;
+    color: #a0a0a0;
+    transition: color 0.5s;
+    transition: color 0.5s;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.pricing-item-permonth {
+    width: 130px;
+    height: 130px;
+    transition: color 0.5s;
+    padding: 20px;
+    border: 2px solid #6195ff;
+    border-radius: 50%;
+    margin: 20px auto;
+}
+
+.pricing-item-permonth .dollar {
+    font-size: 50px;
+}
+
+.pricing-item-permonth .month {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 15px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.pricing-list {
+    list-style: none;
+}
+
+.pricing-list li {
+    color: #a0a0a0;
+    transition: color 0.5s;
+    line-height: 1.8;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.pricing-item-purchase {
+    background: none;
+    border: 0;
+    display: block;
+    width: 140px;
+    padding: 10px;
+    margin: 15px auto 0 auto;
+    color: #7ba7ff;
+    border: 2px solid #7ba7ff;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.pricing-item:hover .pricing-item-permonth {
+    color: #fff;
+}
+
+.pricing-item:hover .pricing-item-text {
+    color: #7ba7ff;
+}
+
+.pricing-item:hover .pricing-list li {
+    color: #b9b7b7;
+}
+
+.pricing-item:hover .pricing-item-text {
+    color: #b9b7b7;
+}
+
+
+/* topics recommended section */
+
+.topics-title {
+    margin: 0 0 50px 250px;
+}
+
+.topics-items a {
+    display: inline-block;
+    border: 2px solid #e8e8e8;
+    padding: 15px;
+    width: 100%;
+    height: 50px;
+    text-align: center;
+    text-transform: uppercase;
+    border-radius: 10px;
+}
+
+.topics-items li {
+    background: rgba(245, 245, 245, 0.2);
+    margin: 10px 20px 10px;
+    float: left;
+    list-style: none;
+    width: 20%;
+    border-radius: 10px;
+}
+
+.topics-items a:hover {
+    color: aliceblue;
+    transition: 0.3s;
+}
+
+.topics-items {
+    margin: 0 250px;
+}
+
+.service-item .section-header {
+    text-align: left;
+}
+
+.service-item .section-header .section-line {
+    margin: 0;
+    margin-bottom: 50px;
+}
+
+.service-item-description {
+    padding-right: 20px;
+    color: #999;
+    line-height: 1.4;
+    font-size: 17px;
+    margin-bottom: 19px;
+}
+
+.service-list {
+    list-style: none;
+}
+
+.service-list li {
+    color: #999;
+    margin-bottom: 10px;
+}
+
+.service-list li i {
+    border: 1px solid #5573af;
+    color: #5573af;
+    width: 30px;
+    height: 30px;
+    padding: 7px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+
+/*     service   */
+
+.service-box {
+    border: 1px solid #f9f9fc;
+    border-radius: 12px;
+    padding: 80px;
+    background-color: #f9f9f9;
+}
+
+.service {}
+
+.service-item {
+    width: 50%;
+    float: left;
+}
+
+.service-item-img img {
+    width: 100%;
+    margin-top: 120px;
+    margin-left: 20px;
+}
+
+
+/* footer section */
+
+.footer {
+    background-color: #0c1529;
+    text-align: center;
+}
+
+.footer-links {
+    list-style: none;
+    margin: 20px 0;
+}
+
+.footer-links li {
+    display: inline-block;
+}
+
+.footer-links li a {
+    display: block;
+    width: 50px;
+    height: 50px;
+    background-color: #5573af;
+    color: white;
+    border-radius: 50%;
+}
+
+.footer-links li a i {
+    line-height: 50px;
+}
+
+.footer .logo {
+    font-family: Ephesis, sans-serif;
+    letter-spacing: 4px;
+    font-size: 60px;
+    color: white;
+}
+
+.copyright {
+    color: #999;
+    font-family: Georgia, "Times New Roman", Times, serif;
+    text-transform: uppercase;
+    font-size: 15px;
+}
+
+
+/*       dis page */
+
+.couse-content {}
+
+.course-item {
+    width: 50%;
+    float: left;
+    /* text-align: center; */
+    padding: 50px 20px;
+    font-size: 20px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-color: rgba(245, 245, 245, 0.2);
+}
+
+.course-item .btn {
+    width: 100%;
+    padding: 15px 0;
+    border-radius: 5px;
+    border: 0;
+    cursor: pointer;
+    font-size: 18px;
+    text-transform: capitalize;
+    margin: 10px;
+    background-color: #5573af;
+    color: white;
+    margin-top: 35px;
+    display: inline-block;
+}
+
+.course-item-img img {
+    width: 100%;
+    /* margin-top:120px; */
+    margin-left: 20px;
+    margin-top: 30px;
+}
+
+.course-item .section-header {
+    text-align: left;
+}
+
+.course-item .section-header .section-line {
+    margin: 0;
+    margin-bottom: 50px;
+}
+
+.course-item>i {
+    border: 1px solid #5573af;
+    color: #5573af;
+    width: 30px;
+    height: 30px;
+    padding: 4px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.course-item p {
+    margin: 20px 10px;
+}
+
+.rating {
+    display: inline-flex;
+    flex-direction: row-reverse;
+    margin-left: 200px;
+}
+
+.rating input {
+    display: none;
+}
+
+.rating label {
+    cursor: pointer;
+    color: #ccc;
+    margin: 5px;
+    font-size: 20px;
+}
+
+.rating input:checked~label {
+    transition: 0.6s;
+    color: #ffc107;
+    /* Change color for filled stars */
+}
+
+
+/* Styles for Course Price */
+
+.course-price {
+    display: inline-block;
+    background-color: #f5f5f5;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 20px 0 0 10px;
+    width: 100%;
+    text-align: center;
+}
+
+.original-price {
+    text-decoration: line-through;
+    margin-right: 5px;
+    font-size: 18px;
+}
+
+.discounted-price {
+    color: #ba110b;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+
+/* Learn Section */
+
+.learn-section {
+    /* background-color: #f9f9f9; */
+    padding: 30px;
+    border-radius: 8px;
+    margin-top: 30px;
+    margin-left: 30px;
+}
+
+.learn-section h2 {
+    font-size: 28px;
+    margin-bottom: 5px;
+}
+
+.learn-section hr {
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.learn-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.learn-section li {
+    margin: 15px 0;
+    font-size: 25px;
+    color: #555;
+}
+
+.learn-section li:hover {
+    cursor: pointer;
+}
+
+.learn-section li i {
+    color: #5573af;
+    margin-right: 5px;
+}
+
+.learn-section li {
+    display: flex;
+    align-items: center;
+}
+
+.learn-section li i {
+    flex-shrink: 0;
+    margin-right: 10px;
+}
+
+
+/* Enroll Section */
+
+.enroll-section {
+    background-color: #f9f9f9;
+    padding: 30px;
+    border-radius: 8px;
+    text-align: center;
+    margin-top: 30px;
+    height: 700px;
+}
+
+.enroll-section h2 {
+    font-size: 30px;
+    margin-bottom: 15px;
+    margin-top: 20px;
+}
+
+.enroll-section .btn {
+    width: 45%;
+    padding: 20px 20px;
+    border-radius: 5px;
+    border: 0;
+    cursor: pointer;
+    font-size: 18px;
+    text-transform: capitalize;
+    margin: 10px;
+    background-color: #5573af;
+    color: white;
+    margin-top: 35px;
+    display: inline;
+}
+
+.enroll-section p {
+    font-size: 25px;
+    color: #555;
+    margin-bottom: 25px;
+    margin-top: 20px;
+}
+
+.item-courses {
+    width: 50%;
+    float: left;
+    text-align: center;
+    font-size: 25px;
+    color: #555;
+    margin-bottom: 25px;
+    margin-top: 20px;
+}
+
+.item-courses h3 {
+    font-size: 30px;
+    margin-bottom: 10px;
+    color: black;
+}
+
+.item-courses ul {
+    list-style: none;
+    padding: 0;
+}
+
+.item-courses li {
+    margin-bottom: 10px;
+}
+
+.item-courses .fa-check {
+    color: #5573af;
+    margin-right: 5px;
+}
+
+.item-courses .fa-times {
+    color: #0c1529;
+    margin-right: 5px;
+}
