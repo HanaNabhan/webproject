@@ -114,7 +114,7 @@ if (isset($_POST['submit'])) {
             cursor: pointer;
             font-size: 18px;
             text-transform: capitalize;
-            margin: 10px;
+            margin: 10px 0;
             background-color: #5573af;
             color:white;
             /* transition: background-color  0.5ms; */

@@ -49,10 +49,12 @@ if (isset($_POST["submit"])) {
         .login-input {
 
             display: block;
-            margin-top: 15px;
+            margin: 15px 0;
             width: 50%;
             height: 50px;
-            left: 25%;
+            /* left: 25%; */
+            border-radius: 4px;
+            border:2px;
         }
 
         .bord:focus {
@@ -65,8 +67,10 @@ if (isset($_POST["submit"])) {
         h1 {
             position: absolute;
             top: 20%;
-            left: 48%;
+            left: 46%;
             text-align: center;
+            font-family: sans-serif;
+            color:#5573af;
         }
 
         .form-f {
@@ -78,14 +82,24 @@ if (isset($_POST["submit"])) {
         }
 
         .send {
-            background-color: gray;
-            border: none;
+            
             border-radius: 3px;
+            min-width: 160px;
+            padding: 15px 0;
+            border-radius: 5px;
+            border: 0;
+            cursor: pointer;
+            font-size: 18px;
+            text-transform: capitalize;
+            margin: 10px 0;
+            background-color: #5573af;
+            color:white;
             /* transition: background-color  0.5ms; */
         }
 
         .send:hover {
-            background-color: #C0C0C0;
+            
+             opacity:0.8 ;
             color: white;
             cursor: pointer;
         }
@@ -97,11 +111,11 @@ if (isset($_POST["submit"])) {
         <h1 style="text-align: center; ">Login</h1>
         <form action="<?php htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="post" class="form-f">
             <!-- <label for="username">UserName</label> -->
-            <input id="username" class="login-input bord" name="email" type="text" placeholder="Enter your email">
+            <input id="username" class="login-input bord" name="email" type="text" placeholder="  Enter your email">
             <!-- <label for="password">UserName</label> -->
             <!-- <input id="password" class="login-input bord" name="password" type="password" placeholder="Enter a password"> -->
             <!-- <input id="username" class="login-input bord" name="password" type="text" placeholder="Enter a username"> -->
-            <input id="password" class="login-input bord" name="password" type="password" placeholder="Enter a password">
+            <input id="password" class="login-input bord" name="password" type="password" placeholder="  Enter a password">
             <input class="login-input send" type="submit" value="LOGIN" name="submit">
             <?php echo $error; ?>
         </form>
