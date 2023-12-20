@@ -61,40 +61,62 @@ if (isset($_POST['submit'])) {
 
 <head>
     <style>
+        
         .login {
             height: 100vh;
             width: 100%;
             /* top: 50%; */
             position: relative;
-            background-color: aliceblue;
+            background-color: #e8e8e8 ;
+            justify-content: center;
+            align-items: center;
+            gap :20px;
+            
+            display: flex;
+            flex-direction: column;
+           
         }
 
         .login-input {
 
-            display: block;
+            
             margin: 15px 0;
             width: 50%;
             height: 50px;
             /* left: 25%; */
-            border-radius: 4px;
-            border:2px;
-
+            border-radius: 40px;
+            border:2px solid #5573af;
+            padding: 12px 20px;
+            box-sizing: border-box;
+            background-color: transparent;
+            font-size: 1.2em;
+            box-shadow: 1px 1px 10px #304161;
+            outline: none;
+            color: #5573af;
         }
-
+        ::placeholder{
+            color:#5573af;
+            opacity: 0.6;
+            text-transform: capitalize;
+        }
         .bord:focus {
             /* border: 2px red solid; */
             /* background-color: #C0C0C0; */
-            border-radius: 3px;
-            color: gray;
+            /* border-radius: px; */
+            color: #5573af;
         }
 
         h1 {
             position: absolute;
             top: 20%;
-            left: 46%;
+            left:  auto;
             text-align: center;
-            font-family: sans-serif;
+            font-family:  Georgia, 'Times New Roman', Times, serif;
             color:#5573af;
+            font-size: 3.5rem;
+            /* box-shadow: 1px 1px 10px #304161; */
+            letter-spacing: 2px;
+            
         }
 
         .form-f {
@@ -109,14 +131,14 @@ if (isset($_POST['submit'])) {
            
             min-width: 160px;
             padding: 15px 0;
-            border-radius: 5px;
-            border: 0;
+            border-radius: 40px;
+            /* border: 2px solid #5573af; */
             cursor: pointer;
             font-size: 18px;
             text-transform: capitalize;
             margin: 10px 0;
-            background-color: #5573af;
-            color:white;
+            background: linear-gradient(45deg,#5573af,#304161);
+            color:#fff;
             /* transition: background-color  0.5ms; */
         }
 
@@ -141,14 +163,14 @@ if (isset($_POST['submit'])) {
         <h1 >Register</h1>
         <form action="registeration.php" method="post" class="form-f">
             <!-- <label for="username">UserName</label> -->
-            <input class="login-input bord" name="username" type="text" placeholder="  Enter a username">
+            <input class="login-input bord" name="username" type="text" placeholder="username">
             <div class="error"> <?php echo $err_username; ?></div>
-            <input class="login-input bord" name="email" type="email" placeholder="  Enter a email">
+            <input class="login-input bord" name="email" type="email" placeholder="email">
             <div class="error"> <?php echo $err_email; ?></div>
-            <input class="login-input bord" name="password" type="password" placeholder="  Enter a password">
-            <input class="login-input bord" name="confirmPassword" type="password" placeholder="  Enter Confirmation password">
+            <input class="login-input bord" name="password" type="password" placeholder="password">
+            <input class="login-input bord" name="confirmPassword" type="password" placeholder="Confirmation password">
             <div class="error"> <?php echo $err_pass; ?></div>
-            <input class="login-input send" name="submit" type="submit" value="LOGIN" >
+            <input class="login-input send" name="submit" type="submit" value="LOG IN" >
             <div class="error"> <?php echo $error; ?></div>
         </form>
     </div>
